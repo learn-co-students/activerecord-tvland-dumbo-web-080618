@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'spec_helper'
 
 describe "Actor" do
@@ -22,6 +23,7 @@ describe "Actor" do
     khaleesi = Character.new(:name => "Khaleesi")
     khaleesi.actor = emilia
     khaleesi.save
+    # binding.pry
 
     khaleesi.reload
     expect(emilia.characters).to include(khaleesi)
@@ -70,7 +72,7 @@ describe "Actor" do
     got = Show.new(:name => "Game of Thrones")
     khaleesi.show = got
     khaleesi.save
-
+    # binding.pry 
     khaleesi.reload
     expect(emilia.list_roles).to include("Khaleesi - Game of Thrones")
   end
